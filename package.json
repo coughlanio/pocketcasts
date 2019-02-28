@@ -1,8 +1,11 @@
 {
   "name": "pocketcasts",
   "version": "1.0.0",
-  "description": "",
-  "repo": "https://github.com/coughlanio/pocketcasts",
+  "description": "Node.js Client Library for interacting with PocketCasts API.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coughlanio/pocketcasts"
+  },
   "author": "Chris Coughlan <chris@coughlan.io>",
   "main": "src/index.js",
   "scripts": {
