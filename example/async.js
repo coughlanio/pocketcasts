@@ -7,6 +7,6 @@ const pocketcasts = new PocketCasts('email', 'password');
   const loggedIn = await pocketcasts.login();
   assert(loggedIn);
 
-  const { podcasts } = await pocketcasts.list();
+  const { podcasts } = await pocketcasts.getList();
   assert(podcasts.length);
 })();
