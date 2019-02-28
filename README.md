@@ -41,50 +41,86 @@ const pocketcasts = new PocketCasts('email', 'password');
 ## API
 The following is a list of API methods available to call once successfully logged in.
 
-### User API Methods
-There's a number of API methods available to call to access currently logged-in users resources.
-
-#### list()
+#### getList()
 Returns a list of the currently logged-in users subscribed podcasts.
+```
+POST user/podcast/list
+```
 
-#### newReleases()
+#### getNewReleases()
 Returns a list of new releases for the currently logged-in users subscribed podcasts.
+```
+POST user/new_releases
+```
 
-#### inProgress()
+#### getInProgress()
 Returns a list of in-progress episodes for the currently logged-in users subscribed podcasts.
+```
+POST user/in_progress
+```
 
-#### starred()
+#### getStarred()
 Returns a list of starred episodes for the currently logged-in users subscribed podcasts.
+```
+POST user/starred
+```
 
-#### history()
+#### getHistory()
 Returns a list of previously listened episodes for the currently logged-in user.
+```
+POST user/history
+```
 
-#### stats()
+#### getStats()
 Returns a number of stats for the currently logged-in user.
+```
+POST user/stats/summary
+```
 
-#### recommendedEpisodes()
+#### getRecommendedEpisodes()
 Returns a list of recommended podcast episodes for the currently logged in user.
+```
+POST discover/recommend_episodes
+```
 
-### Discover API Methods
-There's a number of API methods available to call to access PocketCasts Discover resources.
-
-#### search({term})
+#### getSearchResults()
 Returns search results for the provided search term query.
+```
+POST discover/search
+```
 
-#### categories()
+#### getCategories()
 Returns a list of podcast categories on PocketCasts.
+```
+GET categories_v2
+```
 
-#### content()
+#### getContent()
 Returns a list of themed and regional content currently featuring on PocketCasts.
+```
+GET content
+```
 
-#### featured()
+#### getFeatured()
 Returns a list of currently featured content on PocketCasts.
+```
+GET featured
+```
 
-#### networkList()
+#### getNetworkList()
 Returns a list of podcast networks currently featured on PocketCasts.
+```
+GET network_list_v2
+```
 
-#### popular()
+#### getPopular()
 Returns a list of popular podcasts currently featured on PocketCasts.
+```
+GET popular
+```
 
-#### trending()
+#### getTrending()
 Returns a list of trending podcasts currently featured on PocketCasts.
+```
+GET trending
+```
