@@ -14,7 +14,7 @@ npm install pocketcasts
 
 ```
 const assert = require('assert');
-const PocketCasts = require('../src');
+const PocketCasts = require('pocketcasts');
 
 const pocketcasts = new PocketCasts('email', 'password');
 
@@ -25,7 +25,7 @@ pocketcasts.login()
 
 ```
 const assert = require('assert');
-const PocketCasts = require('../src');
+const PocketCasts = require('pocketcasts');
 
 const pocketcasts = new PocketCasts('email', 'password');
 
