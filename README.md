@@ -84,7 +84,7 @@ Returns a list of recommended podcast episodes for the currently logged in user.
 POST discover/recommend_episodes
 ```
 
-#### getSearchResults()
+#### getSearchResults({ term })
 Returns search results for the provided search term query.
 ```
 POST discover/search
