@@ -13,13 +13,29 @@ npm install pocketcasts
 ## Usage
 
 ```
-const PocketCasts = require('pocketcasts');
+const assert = require('assert');
+const PocketCasts = require('../src');
 
-const pocketcasts = new PocketCasts('username', 'password');
+const pocketcasts = new PocketCasts('email', 'password');
 
 pocketcasts.login()
-  .then(pocketcasts.list)
-  .then(list => console.log(JSON.stringify(list, null, 4)));
+  .then(() => pocketcasts.list())
+  .then(({ podcasts }) => assert(podcasts.length));
+```
+
+```
+const assert = require('assert');
+const PocketCasts = require('../src');
+
+const pocketcasts = new PocketCasts('email', 'password');
+
+(async () => {
+  const loggedIn = await pocketcasts.login();
+  assert(loggedIn);
+
+  const { podcasts } = await pocketcasts.list();
+  assert(podcasts.length);
+})();
 ```
 
 ## API
