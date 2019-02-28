@@ -1,11 +1,12 @@
 const sinon = require('sinon');
 const PocketCasts = require('../src');
-const jsonResources = require('../src/jsonResources');
+const resources = require('../src/resources');
 
 const sandbox = sinon.createSandbox();
 
-describe('PocketCasts JSON Resources', () => {
+describe('PocketCasts API Resources', () => {
   beforeEach(() => {
+    sandbox.stub(PocketCasts.prototype, 'post').resolves({});
     sandbox.stub(PocketCasts.prototype, 'get').resolves({});
     this.pocketcasts = new PocketCasts('foo@example.com', 'password');
   });
@@ -14,11 +15,11 @@ describe('PocketCasts JSON Resources', () => {
     sandbox.restore();
   });
 
-  jsonResources.forEach(({ name, path }) => {
+  resources.forEach(({ name, path, method }) => {
     it(name, async () => {
       await this.pocketcasts[name]();
-      sinon.assert.calledOnce(this.pocketcasts.get);
-      sinon.assert.calledWith(this.pocketcasts.get, path);
+      sinon.assert.calledOnce(this.pocketcasts[method]);
+      sinon.assert.calledWith(this.pocketcasts[method], path);
     });
   });
 });

@@ -4,7 +4,7 @@ const PocketCasts = require('../src');
 
 const sandbox = sinon.createSandbox();
 
-describe('PocketCasts', () => {
+describe('PocketCasts API', () => {
   beforeEach(() => {
     sandbox.stub(PocketCasts.prototype, 'post').resolves({});
     this.pocketcasts = new PocketCasts('foo@example.com', 'password');

@@ -1,6 +1,5 @@
 const request = require('request-promise-native');
-const apiResources = require('./apiResources');
-const jsonResources = require('./jsonResources');
+const resources = require('./resources');
 
 module.exports = class PocketCasts {
   constructor(email, password) {
@@ -12,12 +11,8 @@ module.exports = class PocketCasts {
 
     this.request = request.defaults({ jar: true });
 
-    jsonResources.forEach(({ name, path }) => {
-      PocketCasts.prototype[name] = this.get.bind(this, path);
-    });
-
-    apiResources.forEach(({ name, path }) => {
-      PocketCasts.prototype[name] = this.post.bind(this, path);
+    resources.forEach(({ name, path, method }) => {
+      PocketCasts.prototype[name] = this[method].bind(this, path);
     });
   }
 
