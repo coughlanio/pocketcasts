@@ -12,8 +12,8 @@ module.exports = class PocketCasts {
 
     this.request = request.defaults({ jar: true });
 
-    Object.keys(jsonResources).forEach((resource) => {
-      PocketCasts.prototype[resource] = this.get.bind(this, jsonResources[resource]);
+    jsonResources.forEach(({ name, path }) => {
+      PocketCasts.prototype[name] = this.get.bind(this, path);
     });
 
     apiResources.forEach(({ name, path }) => {
@@ -27,22 +27,11 @@ module.exports = class PocketCasts {
    * @returns Promise.
    */
   async login() {
-    const {
-      email,
-      password,
-    } = this;
-
-    const options = {
-      method: 'POST',
-      uri: `${this.api}/user/login`,
-      json: {
-        email,
-        password,
-        scope: 'webplayer',
-      },
-    };
-
-    return this.request(options)
+    return this.post('/user/login', {
+      email: this.email,
+      password: this.password,
+      scope: 'webplayer',
+    })
       .then(({ token }) => {
         this.token = token;
         return true;
@@ -60,7 +49,7 @@ module.exports = class PocketCasts {
     const options = {
       method: 'POST',
       uri: `${this.api}/${path}`,
-      headers: {
+      headers: path === '/user/login' || {
         Authorization: `Bearer ${this.token}`,
       },
       json,

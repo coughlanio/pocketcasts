@@ -2,7 +2,6 @@ module.exports = [
   {
     name: 'list',
     path: 'user/podcast/list',
-    json: { v: 1 },
   },
   {
     name: 'newReleases',
