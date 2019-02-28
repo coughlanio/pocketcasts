@@ -2,6 +2,8 @@
 
 Client library for interacting with the PocketCasts WebPlayer API.
 
+[![CircleCI](https://circleci.com/gh/coughlanio/pocketcasts.svg?style=svg)](https://circleci.com/gh/coughlanio/pocketcasts)
+
 ## Installation
 
 ```
