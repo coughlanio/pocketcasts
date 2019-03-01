@@ -4,6 +4,7 @@ Client library for interacting with the PocketCasts WebPlayer API.
 
 [![CircleCI](https://circleci.com/gh/coughlanio/pocketcasts.svg?style=svg)](https://circleci.com/gh/coughlanio/pocketcasts) ![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/coughlanio/pocketcasts)
 
+You can see it in action [here.](https://podcasts.coughlan.dev/)
 
 ## Installation
 
