@@ -8,6 +8,7 @@
   },
   "author": "Chris Coughlan <chris@coughlan.io>",
   "main": "src/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "lint": "eslint .",
     "test": "mocha tests/**"
